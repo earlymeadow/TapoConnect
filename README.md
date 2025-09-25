@@ -44,13 +44,13 @@ TapoDeviceDto device = deviceResult.DeviceList.First(x => x.Alias == "<Device Na
 
 Login to device by known IP address. 
 ```cs
-TapoDeviceKey deviceKey = await deviceClient.LoginByIpAsync("<Username>", "<Password>", "<IpAddress>");
+TapoDeviceKey deviceKey = await deviceClient.LoginByIpAsync("<IpAddress>","<Username>", "<Password>");
 ```
 
 Login to device by known MAC address (finds the MAC address on local network through a Windows ARP request).
 ```cs
 string ip = TapoUtils.GetIpAddressByMacAddress(device.DeviceMac);
-TapoDeviceKey deviceKey = await deviceClient.LoginByIpAsync("<Username>", "<Password>", ip);
+TapoDeviceKey deviceKey = await deviceClient.LoginByIpAsync(ip, "<Username>", "<Password>");
 ```
 
 Get Device info.
